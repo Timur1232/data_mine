@@ -1,0 +1,21 @@
+- Entity                                                       : Страна / регион
+- Year                                                         : Год
+- Access to electricity (% of population)                      : Доступ к электричеству (% населения)
+- Access to clean fuels for cooking (% of population)          : Доступ к чистому топливу для приготовления пищи (% населения)
+- Renewable-electricity-generating-capacity-per-capita         : Установленная мощность ВИЭ на душу населения
+- Financial flows to developing countries (US $)               : Финансовые потоки в развивающиеся страны (долл. США)
+- Renewable energy share in total final energy consumption (%) : Доля возобновляемой энергии в конечном потреблении (%)
+- Electricity from fossil fuels (TWh)                          : Электроэнергия из ископаемого топлива (ТВт·ч)
+- Electricity from nuclear (TWh)                               : Электроэнергия от АЭС (ТВт·ч)
+- Electricity from renewables (TWh)                            : Электроэнергия из ВИЭ (ТВт·ч)
+- Low-carbon electricity (% electricity)                       : Доля низкоуглеродной электроэнергии (%)
+- Primary energy consumption per capita (kWh/person)           : Потребление первичной энергии на душу населения (кВт·ч/чел)
+- Energy intensity level of primary energy (MJ/$2011 PPP GDP)  : Энергоёмкость ВВП (МДж/долл. ВВП по ППС 2011 г.)
+- Value_co2_emissions (metric tons per capita)                 : Выбросы CO2 на душу населения (т/чел)
+- Renewables (% equivalent primary energy)                     : Доля ВИЭ в первичной энергии (%)
+- GDP growth (annual %)                                        : Рост ВВП (годовой %)
+- GDP per capita                                               : ВВП на душу населения
+- Density (P/Km2)                                              : Плотность населения (чел/км²)
+- Land Area (Km2)                                              : Площадь территории (км²)
+- Latitude                                                     : Широта
+- Longitude                                                    : Долгота
