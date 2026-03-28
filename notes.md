@@ -49,3 +49,23 @@
 - Primaty.energy.consumption.per.capita -> gdp_per_capita                (0.83107719)
 - Renewables                            -> Electricity.from.renewables   (0.67045891)
 - Renewables                            -> Low.carbon.electricity        (0.86170315)
+
+## Часть 4
+
+Множественная регрессия:
+
+(Intercept)                           101865.90971
+Access.to.electricity                  -1262.70261
+Density                                    4.78829
+Electricity.from.fossil.fuels           1669.57129
+Electricity.from.renewables             1009.41846
+Energy.imports                          -125.48778
+gdp_growth                              8032.42717
+gdp_per_capita                            -0.77990
+Low.carbon.electricity                  1330.77786
+Primary.energy.consumption.per.capita      0.01368
+Renewables                             -3288.77648
+
+> [!IMPORTANT]
+> Отчет - один большой за всю работу
+> с единым большим выводом
