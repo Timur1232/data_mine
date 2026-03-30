@@ -1,5 +1,9 @@
 #import "typst_templates/uni.typ": *
 #show: uni_style
+#set math.equation(numbering: none)
+#show math.equation: it => {
+  align(left, it)
+}
 
 #front_page(
   lab_name: [Корреляционный и регрессионный анализ данных №3],
@@ -52,13 +56,13 @@
 #V()
 #figure(
   caption: [Корреляционный анализ Пирсона],
-  EMPTY_BODY, // image(),
+  image("./3/cor_mat_pirson.png", width: 80%),
 ) <pirson>
 
 #V()
 #figure(
   caption: [Корреляционный анализ Спирмена],
-  EMPTY_BODY, // image(),
+  image("./3/cor_mat_spirmen.png", width: 80%),
 ) <spirmen>
 #V()
 
@@ -67,7 +71,7 @@
 #V()
 #figure(
   caption: [Матрица точечных графиков на примера данных],
-  EMPTY_BODY, // image(),
+  image("./3/cor_graphs.png", width: 60%),
 ) <cor_mat_example>
 #V()
 
@@ -83,7 +87,7 @@ $
 #V()
 #figure(
   caption: [Регрессионный анализ примера данных],
-  EMPTY_BODY, // image(),
+  image("./3/reg1.png", width: 70%),
 ) <reg_example>
 #V()
 
@@ -94,7 +98,7 @@ $
 #V()
 #figure(
   caption: [График остатков примера данных],
-  EMPTY_BODY, // image(),
+  image("./3/ost_graph.png", width: 70%),
 ) <ost_plot>
 #V()
 
@@ -118,8 +122,9 @@ $
 - GDP per capita -- ВВП на душу населения
 - Energy imports -- импорт электроэнергии нетто (% от использования электроэнергии)
 
-Первым делом выполнен корреляционный анализ Пирсона (@my_cor_pirson[рисунок]) и
-Спирмена (@my_cor_spirmen[рисунок]).
+Первым делом выполнен корреляционный анализ Пирсона (@my_cor_pirson[рисунок] в
+#link(<appendix_A>)[Приложение А]) и Спирмена (@my_cor_spirmen[рисунок] в
+#link(<appendix_A>)[Приложение А]).
 
 В корреляционном анализе Пирсона найдено четыре сильных связи:
 
@@ -140,30 +145,11 @@ $
 Все связи в обоих методах имеют смысл, согласно предметной области. Связи
 отличаются, но некоторые совпадают. Например, зависимость выделений CO2 от
 энергии из ископаемого топлива и зависимость количества энергии из
-возобновляемых ресурсов от доли низкоуглеродной энергии.
+возобновляемых ресурсов от доли низкоуглеродной энергии. Также, как связи в
+примере данных, в методе Спирмена все найденные связи по модулю в среднем
+меньше, чем в методе Пирсона.
 
-// TODO: здесь будет больше картинок
-#V()
-#figure(
-  caption: [Корреляционный анализ Пирсона],
-  EMPTY_BODY, // image(),
-) <my_cor_pirson>
-
-#V()
-#figure(
-  caption: [Корреляционный анализ Спирмена],
-  EMPTY_BODY, // image(),
-) <my_cor_spirmen>
-#V()
-
-Построена матрица точечных графиков (@my_cor_mat[рисунок]).
-
-#V()
-#figure(
-  caption: [Матрица точечных графиков],
-  EMPTY_BODY, // image(),
-) <my_cor_mat>
-#V()
+Построена матрица точечных графиков (@my_cor_mat[рисунок] в #link(<appendix_A>)[Приложение А]).
 
 // - Electricity.from.renewables -> Electricity.from.fossil.fuels (0.94013034)
 // - Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels (0.99694881)
@@ -177,22 +163,22 @@ $
 #V()
 #figure(
   caption: [Регрессионный анализ зависимости Electricity.from.renewables -> Electricity.from.fossil.fuels],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_1.png"),
 ) <my_reg_1>
 #V()
 #figure(
   caption: [Регрессионный анализ зависимости Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_2.png"),
 ) <my_reg_2>
 #V()
 #figure(
   caption: [Регрессионный анализ зависимости Value_co2_emissions_kt_by_country -> Electricity.from.renewables],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_3.png"),
 ) <my_reg_3>
 #V()
 #figure(
   caption: [Регрессионный анализ зависимости Renewables -> Low.carbon.electricity],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_4.png"),
 ) <my_reg_4>
 #V()
 
@@ -214,35 +200,78 @@ $
 "Renewables" = 0.355 dot "Low.carbon.electricity" - 0.087
 $
 
-Далее найдены графики остатков (@my_reg_res_1[рисунок]
---@my_reg_res_4[рисунок]).
+Далее построены графики остатков (@my_reg_res_1[рисунок] --
+@my_reg_res_4[рисунок]).
 
-// TODO: Анализ графиков остатков
+По графику остатков на первом (@my_reg_res_1[рисунок]) и третьем
+(@my_reg_res_3[рисунок]) графиках видно, что он достаточно сильно отклоняется
+от регрессионной прямой в начале отрезка, где больше всего данных, но
+приближется в конце. Точки в основном скоплены в левом нижнем углу, где они,
+визуально, достаточно сильно разбросаны. Однако, некоторые образцы уходят
+вправо вверх, что определяет форму прямой.
+
+На втором графике (@my_reg_res_2[рисунок]) данные визуально собраны в явно
+выраженную прямую линию. Это же видно по графику остатков, так как он несильно
+отклоняется от регрессионной прямой.
+
+На четвертом графике (@my_reg_res_4[рисунок]) в начале отрезка график остатков
+очень близок к регрессионной прямой, но отклоняется в конце. Визуально, по
+форме, видно, что точки выстраивают прямую в начале, но с увеличением
+независимой переменной идет существенное увеличение разброса данных.
 
 #V()
 #figure(
   caption: [График остатков зависимости Electricity.from.renewables -> Electricity.from.fossil.fuels],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_res_1.png", width: 68%),
 ) <my_reg_res_1>
-#V()
-
-
-
 #V()
 #figure(
   caption: [График остатков зависимости Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_res_2.png", width: 68%),
 ) <my_reg_res_2>
 #V()
 #figure(
   caption: [График остатков зависимости Value_co2_emissions_kt_by_country -> Electricity.from.renewables],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_res_3.png", width: 68%),
 ) <my_reg_res_3>
 #V()
 #figure(
   caption: [График остатков зависимости Renewables -> Low.carbon.electricity],
-  EMPTY_BODY, // image(),
+  image("./3/my_reg_res_4.png", width: 68%),
 ) <my_reg_res_4>
 #V()
 
 = Вывод
+
+В ходе лабораторной работы выполнен корреляционный и регрессионный анализ
+примера данных и собственных данных. Выснено, что корреляционный анализ Пирсона
+отличается от Спирмена: некоторые связи не совпадают, отличаются коэффициенты
+корреляции. В методе Спирмена найдено больше сильных связей в даных.
+
+Для связей, найденных методом Пирсона, найдены уравнения линейной регрессии.
+Построены графики остатков для этих связей. Выяснено, что для связей
+Electricity.from.renewables -> Electricity.from.fossil.fuels и
+Value_co2_emissions_kt_by_country -> Electricity.from.renewables данные
+скоплены в начале отрезка регрессионной прямой, где наблюдается наибольшее
+отклонение. Связь Renewables -> Low.carbon.electricity имеет малое отклонение в
+начале отрезка, но разбросс данных существенно величивается с отдаление вправо.
+Связь Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels имеет
+наименьшее отклонение на протяжении всей регрессионной прямой из всех выбранных
+связей.
+
+#pagebreak()
+#appendix_head() <appendix_A>
+#figure(
+  caption: [Корреляционная матрица Пирсона],
+  image("/3/my_cor_pirson.png", width: 100%),
+) <my_cor_pirson>
+#V()
+#figure(
+  caption: [Корреляционная матрица Спирмена],
+  image("/3/my_cor_spirmen.png", width: 100%),
+) <my_cor_spirmen>
+#V()
+#figure(
+  caption: [Матрица точечных графиков],
+  image("./3/my_cor_mat.png", width: 100%),
+) <my_cor_mat>
