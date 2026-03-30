@@ -1,5 +1,9 @@
 #import "typst_templates/uni.typ": *
 #show: uni_style
+#set math.equation(numbering: none)
+#show math.equation: it => {
+  block(breakable: true, align(left, it))
+}
 
 #front_page(
   lab_name: [Корреляционный и регрессионный анализ данных №4],
@@ -37,14 +41,16 @@
 #V()
 #figure(
   caption: [Множественная регрессия],
-  image("/4/ex_many_reg.png"),
+  image("/4/ex_many_reg.png", width: 70%),
 ) <ex_many_reg>
 #V()
 
 Получено уравнение множественной регрессии.
 
 $
-"индекс реального ВВП" = 5*"общественное развитие" – "бедность" – 0,99*"безработица" – "образование" – "ожид.продолжительность" + 0,003
+"индекс реального ВВП" = 5*"общественное развитие" \
+"    "– "бедность" – 0,99*"безработица" – "образование" \
+"    "– "ожид.продолжительность" + 0,003
 $
 
 // TODO: анализ?
@@ -53,7 +59,7 @@ $
 #V()
 #figure(
   caption: [Графики остатков],
-  image("/4/ex_ost_plot.png"),
+  image("/4/ex_ost_plot.png", width: 75%),
 ) <ex_ost_plot>
 #V()
 
@@ -75,7 +81,7 @@ $
 #V()
 #figure(
   caption: [Ход решения пошаговой регрессии назад],
-  image("/4/ex_backward_1.png"),
+  image("/4/ex_backward_1.png", width: 60%),
 ) <ex_backward_1>
 #V()
 #figure(
@@ -86,13 +92,17 @@ $
 Для направления вперед получено уравнение:
 
 $
-"индекс реального ВВП" = 5*"общественное развитие" – "бедность" – 0,99*"безработица" – "образование" – "ожид.продолжительность" + 0,003
+"индекс реального ВВП" = 5*"общественное развитие" \
+"    "– "бедность" – 0,99*"безработица" – "образование" \
+"    "– "ожид.продолжительность" + 0,003
 $
 
 Для направления назад получено:
 
 $
-"индекс реального ВВП" = 5*"общественное развитие" – "бедность" – 0,99*"безработица" – "образование" – "ожид.продолжительность" + 0,003
+"индекс реального ВВП" = 5*"общественное развитие" \
+"    "– "бедность" – 0,99*"безработица" – "образование" \
+"    "– "ожид.продолжительность" + 0,003
 $
 
 Как видно, оба уравнения совпадают. При этом для направления назад было сделано
@@ -118,27 +128,23 @@ $
 #V()
 #figure(
   caption: [Множественная регрессия],
-  image("/4/my_many_reg.png"),
+  image("/4/my_many_reg.png", width: 80%),
 ) <my_many_reg>
 #V()
 
 Получено уравнение множественной регрессии с зависимой переменной
-'Value_co2_emissions_kt_by_country' (выбросы $"CO"_2$ в килотоннах).
+'Value_co2_emissions_kt_by_country' (выбросы CO2 в килотоннах).
 
 // TODO: попробовать другие переменные?
 $
-"Value_co2_emissions_kt_by_country" =
-- 1262.70261 dot "Access.to.electricity"
-+ 4.78829 dot "Density"
-+ 1669.57129 dot "Electricity.from.fossil.fuels"
-+ 1009.41846 dot "Electricity.from.renewables"
-- 125.48778 dot "Energy.imports"
-+ 8032.42717 dot "gdp_growth"
-- 0.77990 dot "gdp_per_capita"
-+ 1330.77786 dot "Low.carbon.electricity"
-+ 0.01368 dot "Primary.energy.consumption.per.capita"
-- 3288.77648 dot "Renewables"
-+ 101865.90971 dot "(Intercept)"
+"Value_co2_emissions_kt_by_country" = \
+"    "- 1262.70261 dot "Access.to.electricity" + 4.78829 dot "Density" \
+"    "+ 1669.57129 dot "Electricity.from.fossil.fuels" \
+"    "+ 1009.41846 dot "Electricity.from.renewables" \
+"    "- 125.48778 dot "Energy.imports" + 8032.42717 dot "gdp_growth" \
+"    "- 0.77990 dot "gdp_per_capita" + 1330.77786 dot "Low.carbon.electricity" \
+"    "+ 0.01368 dot "Primary.energy.consumption.per.capita" \
+"    "- 3288.77648 dot "Renewables" + 101865.90971 dot "(Intercept)"
 $
 
 // TODO: анализ?
@@ -147,7 +153,7 @@ $
 #V()
 #figure(
   caption: [Графики остатков],
-  image("/4/my_ost_plot.png"),
+  image("/4/my_ost_plot.png", width: 80%),
 ) <my_ost_plot>
 #V()
 
@@ -165,17 +171,17 @@ $
 #V()
 #figure(
   caption: [Результат пошаговой регрессии вперед],
-  image("/4/my_forward_result.png"),
+  EMPTY_BODY, //image("/4/my_forward_result.png"),
 ) <my_forward_result>
 #V()
 #figure(
   caption: [Ход решения пошаговой регрессии назад],
-  image("/4/my_backward_1.png"),
+  EMPTY_BODY, //image("/4/my_backward_1.png"),
 ) <my_backward_1>
 #V()
 #figure(
   caption: [Результат пошаговой регрессии назад],
-  image("/4/my_backward_result.png"),
+  EMPTY_BODY, //image("/4/my_backward_result.png"),
 ) <my_backward_result>
 
 Для направления вперед получено уравнение:
@@ -198,7 +204,7 @@ $
 #V()
 #figure(
   caption: [VIF коэффициенты],
-  image("/4/my_vif.png"),
+  EMPTY_BODY, // image("/4/my_vif.png"),
 ) <my_vif>
 #V()
 
