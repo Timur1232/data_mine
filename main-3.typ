@@ -118,11 +118,29 @@ $
 - GDP per capita -- ВВП на душу населения
 - Energy imports -- импорт электроэнергии нетто (% от использования электроэнергии)
 
-// TODO: описание разницы методов
 Первым делом выполнен корреляционный анализ Пирсона (@my_cor_pirson[рисунок]) и
 Спирмена (@my_cor_spirmen[рисунок]).
 
-// TODO: указать найденные зависимости
+В корреляционном анализе Пирсона найдено четыре сильных связи:
+
+- Electricity.from.renewables -> Electricity.from.fossil.fuels (0.94013034)
+- Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels (0.99694881)
+- Value_co2_emissions_kt_by_country -> Electricity.from.renewables (0.957378793)
+- Renewables -> Low.carbon.electricity (0.80162385)
+
+В анализе Спирмена найдены пять сильных связи:
+
+- Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels (0.9546371)
+- Primaty.energy.consumption.per.capita -> Access.to.electricity (0.69526061)
+- gdp_per_capita -> Access.to.electricity (0.65039679)
+- Primaty.energy.consumption.per.capita -> gdp_per_capita (0.83107719)
+- Renewables -> Electricity.from.renewables (0.67045891)
+- Renewables -> Low.carbon.electricity (0.86170315)
+
+Все связи в обоих методах имеют смысл, согласно предметной области. Связи
+отличаются, но некоторые совпадают. Например, зависимость выделений CO2 от
+энергии из ископаемого топлива и зависимость количества энергии из
+возобновляемых ресурсов от доли низкоуглеродной энергии.
 
 // TODO: здесь будет больше картинок
 #V()
@@ -147,6 +165,84 @@ $
 ) <my_cor_mat>
 #V()
 
-// TODO: спросить какие зависимости брать - Пирсона или Спирмена
+// - Electricity.from.renewables -> Electricity.from.fossil.fuels (0.94013034)
+// - Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels (0.99694881)
+// - Value_co2_emissions_kt_by_country -> Electricity.from.renewables (0.957378793)
+// - Renewables -> Low.carbon.electricity (0.80162385)
+
+Для связей, найденных при корреляционном анализе Пирсона, проведен
+регрессионный анализ (@my_reg_1[рисунок] -- @my_reg_4[рисунок]) и найдены
+линейные функции связи.
+
+#V()
+#figure(
+  caption: [Регрессионный анализ зависимости Electricity.from.renewables -> Electricity.from.fossil.fuels],
+  EMPTY_BODY, // image(),
+) <my_reg_1>
+#V()
+#figure(
+  caption: [Регрессионный анализ зависимости Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels],
+  EMPTY_BODY, // image(),
+) <my_reg_2>
+#V()
+#figure(
+  caption: [Регрессионный анализ зависимости Value_co2_emissions_kt_by_country -> Electricity.from.renewables],
+  EMPTY_BODY, // image(),
+) <my_reg_3>
+#V()
+#figure(
+  caption: [Регрессионный анализ зависимости Renewables -> Low.carbon.electricity],
+  EMPTY_BODY, // image(),
+) <my_reg_4>
+#V()
+
+Полученные уравнения:
+
+$
+"Electricity.from.renewables" = 0.362 dot "Electricity.from.fossil.fuels" + 14.991
+$
+
+$
+"Value_co2_emissions_kt_by_country" = 2037.06 dot "Electricity.from.fossil.fuels" + 70.87
+$
+
+$
+"Value_co2_emissions_kt_by_country" = 5082.9 dot "Electricity.from.renewables" - 32243.9
+$
+
+$
+"Renewables" = 0.355 dot "Low.carbon.electricity" - 0.087
+$
+
+Далее найдены графики остатков (@my_reg_res_1[рисунок]
+--@my_reg_res_4[рисунок]).
+
+// TODO: Анализ графиков остатков
+
+#V()
+#figure(
+  caption: [График остатков зависимости Electricity.from.renewables -> Electricity.from.fossil.fuels],
+  EMPTY_BODY, // image(),
+) <my_reg_res_1>
+#V()
+
+
+
+#V()
+#figure(
+  caption: [График остатков зависимости Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels],
+  EMPTY_BODY, // image(),
+) <my_reg_res_2>
+#V()
+#figure(
+  caption: [График остатков зависимости Value_co2_emissions_kt_by_country -> Electricity.from.renewables],
+  EMPTY_BODY, // image(),
+) <my_reg_res_3>
+#V()
+#figure(
+  caption: [График остатков зависимости Renewables -> Low.carbon.electricity],
+  EMPTY_BODY, // image(),
+) <my_reg_res_4>
+#V()
 
 = Вывод
