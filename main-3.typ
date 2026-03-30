@@ -126,7 +126,7 @@ $
 #link(<appendix_A>)[Приложение А]) и Спирмена (@my_cor_spirmen[рисунок] в
 #link(<appendix_A>)[Приложение А]).
 
-В корреляционном анализе Пирсона найдено четыре сильных связи:
+В корреляционном анализе Пирсона найдено четыре сильных связи (зависимая переменная -> независимая (сила связи)):
 
 - Electricity.from.renewables -> Electricity.from.fossil.fuels (0.94013034)
 - Value_co2_emissions_kt_by_country -> Electricity.from.fossil.fuels (0.99694881)
