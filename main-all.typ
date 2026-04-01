@@ -164,7 +164,7 @@ patientdata
 ) <patientdata>
 #V()
 
-Вывод структуры и факторы таблицы (@str_summary[Выводы]).
+Вывод структуры и факторы таблицы (@str_summary[рисунок]).
 
 ```
 diabetes <- factor(diabetes)
@@ -200,7 +200,7 @@ mylist
 #V()
 
 При помощи функции `edit` выполнено редактирование данных с клавиатуры
-(@edit1[рисунок] и @edit2[рисунок]).
+(@edit2[рисунок] и @edit1[рисунок]).
 
 ```
 mydata <- data.frame(age = numeric(0), gender = character(0), weight = numeric(0))
