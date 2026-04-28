@@ -1,3 +1,9 @@
-[submodule "typst_templates"]
-	path = typst_templates
+[submodule "lab2/typst_templates"]
+	path = lab2/typst_templates
+	url = https://github.com/Timur1232/typst_templates
+[submodule "lab3/typst_templates"]
+	path = lab3/typst_templates
+	url = https://github.com/Timur1232/typst_templates
+[submodule "lab4/typst_templates"]
+	path = lab4/typst_templates
 	url = https://github.com/Timur1232/typst_templates

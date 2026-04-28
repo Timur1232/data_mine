@@ -6,7 +6,7 @@
 }
 
 #front_page(
-  lab_name: [Корреляционный и регрессионный анализ],
+  lab_name: [Корреляционный и регрессионный анализ данных],
   lab_number: 2,
   subject: DataMining,
   prof_name: Prof_DataMining.at(0),
